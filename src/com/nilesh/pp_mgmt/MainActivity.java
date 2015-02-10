@@ -7,9 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.nilesh.pp_mgmt.ListFragment.OnURLSelectedListener;
-
-public class MainActivity extends Activity implements OnURLSelectedListener  {
+public class MainActivity extends Activity  {
 
 	boolean detailPage = false;
 
@@ -25,13 +23,13 @@ public class MainActivity extends Activity implements OnURLSelectedListener  {
 
 		if(savedInstanceState == null) {
 			FragmentTransaction ft = getFragmentManager().beginTransaction();
-			ListFragment listFragment = new ListFragment();
-			ft.add(R.id.displayList, listFragment, "List_Fragment");
+			WebviewDetailFragment detailFragment = new WebviewDetailFragment();
+			ft.add(R.id.fragmentContainer, detailFragment, "Detail_Fragment");
 			ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
 			ft.commit();
 		}
 
-		if(findViewById(R.id.displayDetail) != null){
+		/*if(findViewById(R.id.displayDetail) != null){
 			detailPage = true;
 			getFragmentManager().popBackStack();
 
@@ -43,7 +41,7 @@ public class MainActivity extends Activity implements OnURLSelectedListener  {
 				ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
 				ft.commit();
 			}
-		}
+		}*/
 
 	}
 
@@ -58,26 +56,7 @@ public class MainActivity extends Activity implements OnURLSelectedListener  {
 		} else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
 			Toast.makeText(this, "portrait", Toast.LENGTH_SHORT).show();
 		}
-		setContentView(R.layout.activity_main);
+		//setContentView(R.layout.activity_main);
 	}*/
-	
-	@Override
-	public void onURLSelected(String URL) {
-		Log.v("AndroidFragmentActivity",URL);
 
-		if(detailPage){
-			WebviewDetailFragment detailFragment = (WebviewDetailFragment)
-					getFragmentManager().findFragmentById(R.id.displayDetail);
-			detailFragment.updateURLContent(URL);
-		}
-		else{
-			WebviewDetailFragment detailFragment = new WebviewDetailFragment();
-			detailFragment.setURLContent(URL);
-			FragmentTransaction ft = getFragmentManager().beginTransaction();
-			ft.replace(R.id.displayList, detailFragment, "Detail_Fragment2");
-			ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-			ft.addToBackStack(null);
-			ft.commit();
-		}
-	}
 }

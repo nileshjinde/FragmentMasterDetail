@@ -6,7 +6,7 @@
  
  
     <FrameLayout
-        android:id="@+id/displayList"
+        android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
  

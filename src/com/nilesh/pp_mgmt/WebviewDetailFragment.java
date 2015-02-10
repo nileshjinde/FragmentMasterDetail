@@ -10,7 +10,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 public class WebviewDetailFragment extends Fragment {
-	String mURL = "";
+	String mURL = "http://www.google.com";
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -25,8 +25,9 @@ public class WebviewDetailFragment extends Fragment {
 		if (savedInstanceState != null) {
 			mURL = savedInstanceState.getString("currentURL", "");
 		}
+		
 		if(!mURL.trim().equalsIgnoreCase("")){
-			WebView myWebView = (WebView) getView().findViewById(R.id.pageInfo);
+			WebView myWebView = (WebView) getView().findViewById(R.id.page1);
 			myWebView.getSettings().setJavaScriptEnabled(true);
 			myWebView.setWebViewClient(new MyWebViewClient());
 			myWebView.loadUrl(mURL.trim());
@@ -44,19 +45,8 @@ public class WebviewDetailFragment extends Fragment {
 			Bundle savedInstanceState) {
 		Log.v("DetailFragment", "onCreateView()");
 		View view = inflater.inflate(R.layout.webview_detail_fragment_layout, container, false);
+	
 		return view;
-	}
-
-	public void setURLContent(String URL) {
-		mURL = URL;
-	}
-
-	public void updateURLContent(String URL) {
-		mURL = URL;
-		WebView myWebView = (WebView) getView().findViewById(R.id.pageInfo);
-		myWebView.getSettings().setJavaScriptEnabled(true);
-		myWebView.setWebViewClient(new MyWebViewClient());
-		myWebView.loadUrl(mURL.trim());
 	}
 
 	private class MyWebViewClient extends WebViewClient {
