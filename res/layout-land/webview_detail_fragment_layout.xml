@@ -8,14 +8,14 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:text="@string/detail_heading"
+        android:text="Web Page Landscape"
         android:textSize="20sp" />
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="horizontal" 
-        android:weightSum="1">
+        >
 
         <WebView
             android:id="@+id/page1"

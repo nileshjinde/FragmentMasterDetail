@@ -7,7 +7,7 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="@string/detail_heading" android:padding="5dp"
+        android:text="Web Page Portrait mode" android:padding="5dp"
         android:textSize="20sp" />
  
     <WebView

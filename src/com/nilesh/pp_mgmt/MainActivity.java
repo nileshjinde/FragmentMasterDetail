@@ -2,7 +2,6 @@ package com.nilesh.pp_mgmt;
 
 import android.app.Activity;
 import android.app.FragmentTransaction;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;

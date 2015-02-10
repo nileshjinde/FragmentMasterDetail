@@ -25,12 +25,19 @@ public class WebviewDetailFragment extends Fragment {
 		if (savedInstanceState != null) {
 			mURL = savedInstanceState.getString("currentURL", "");
 		}
-		
-		if(!mURL.trim().equalsIgnoreCase("")){
-			WebView myWebView = (WebView) getView().findViewById(R.id.page1);
-			myWebView.getSettings().setJavaScriptEnabled(true);
-			myWebView.setWebViewClient(new MyWebViewClient());
-			myWebView.loadUrl(mURL.trim());
+		loadWebView("http://www.google.com", R.id.page1);		
+		loadWebView("http://maps.google.com", R.id.page2);
+	}
+
+	private void loadWebView(String strUrl, int webViewId){
+		if(!strUrl.trim().equalsIgnoreCase("")){
+
+			WebView myWebView = (WebView) getView().findViewById(webViewId);
+			if(myWebView != null){
+				myWebView.getSettings().setJavaScriptEnabled(true);
+				myWebView.setWebViewClient(new MyWebViewClient());
+				myWebView.loadUrl(strUrl.trim());
+			}
 		}
 	}
 
@@ -45,7 +52,7 @@ public class WebviewDetailFragment extends Fragment {
 			Bundle savedInstanceState) {
 		Log.v("DetailFragment", "onCreateView()");
 		View view = inflater.inflate(R.layout.webview_detail_fragment_layout, container, false);
-	
+
 		return view;
 	}
 
