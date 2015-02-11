@@ -1,18 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical" >
- 
+
     <TextView
+        android:id="@+id/portraitTitle"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Web Page Portrait mode" android:padding="5dp"
-        android:textSize="20sp" />
- 
+        android:padding="5dp"
+        android:text="Web Page Portrait mode"
+        android:textSize="20sp" 
+       />
+
     <WebView
         android:id="@+id/page1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
- 
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btnNext" 
+        android:layout_below="@id/portraitTitle"/>
+
+      <Button
+        android:id="@id/btnNext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Next"/>
+      
+      <WebView
+        android:id="@+id/page2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btnPrev" 
+        android:layout_below="@id/btnNext"
+        android:visibility="gone"/>
+
+      <Button
+        android:id="@id/btnPrev"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Prev"
+        android:visibility="gone"
+        />
+
+</RelativeLayout>
